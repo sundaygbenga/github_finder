@@ -38,14 +38,13 @@ const GithubState = (props) => {
 		try {
 			setLoading();
 
-			const res = await fetch(
+			const res = await axios.get(
 				`http://api.github.com/search/users?q=${text}&client_id=${githubClientId} & client_secret=${githubClientSecret}`
 			);
-			const data = await res.json();
 
 			dispatch({
 				type: SEARCH_USERS,
-				payload: data.items,
+				payload: res.data.items,
 			});
 		} catch (error) {}
 	};

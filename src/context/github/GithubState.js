@@ -15,13 +15,13 @@ let githubClientId;
 let githubClientSecret;
 
 // Check the environments if in production or not
-if (process.env.NODE_ENV !== 'production') {
-	githubClientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
-	githubClientSecret = process.env.REACT_APP_GITHUB_CLIENT_ID;
-} else {
-	githubClientId = process.env.GITHUB_CLIENT_ID;
-	githubClientSecret = process.env.GITHUB_CLIENT_ID;
-}
+// if (process.env.NODE_ENV !== 'production') {
+githubClientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
+githubClientSecret = process.env.REACT_APP_GITHUB_CLIENT_ID;
+// } else {
+// 	githubClientId = process.env.GITHUB_CLIENT_ID;
+// 	githubClientSecret = process.env.GITHUB_CLIENT_ID;
+// }
 
 const GithubState = (props) => {
 	const initialState = {

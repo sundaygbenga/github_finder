@@ -1,14 +1,14 @@
-import React, { useReducer } from 'react';
-import axios from 'axios';
-import GithubContext from './githubContext';
-import GithubReducer from './githubReducer';
+import React, { useReducer } from "react";
+import axios from "axios";
+import GithubContext from "./githubContext";
+import GithubReducer from "./githubReducer";
 import {
 	SEARCH_USERS,
 	SET_LOADING,
 	CLEAR_USERS,
 	GET_USER,
 	GET_REPOS,
-} from '../types';
+} from "../types";
 
 // Initialize Variables
 let githubClientId;
@@ -39,7 +39,8 @@ const GithubState = (props) => {
 			setLoading();
 
 			const res = await axios.get(
-				`http://api.github.com/search/users?q=${text}&client_id=${githubClientId} & client_secret=${githubClientSecret}`
+				`http://api.github.com/search/users?q=${text}`
+				// `http://api.github.com/search/users?q=${text}&client_id=${githubClientId} & client_secret=${githubClientSecret}`
 			);
 
 			dispatch({
@@ -54,7 +55,8 @@ const GithubState = (props) => {
 		setLoading();
 
 		const res = await axios.get(
-			`http://api.github.com/users/${username}?client_id=${githubClientId} & client_secret=${githubClientSecret}`
+			`http://api.github.com/users/${username}`
+			// `http://api.github.com/users/${username}?client_id=${githubClientId} & client_secret=${githubClientSecret}`
 		);
 
 		dispatch({
@@ -67,7 +69,8 @@ const GithubState = (props) => {
 	const getUserRepos = async (username) => {
 		setLoading();
 		const res = await axios.get(
-			`http://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${githubClientId} & client_secret=${githubClientSecret}`
+			// `http://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${githubClientId} & client_secret=${githubClientSecret}`
+			`http://api.github.com/users/${username}/repos?per_page=5&sort=created:asc`
 		);
 
 		dispatch({
